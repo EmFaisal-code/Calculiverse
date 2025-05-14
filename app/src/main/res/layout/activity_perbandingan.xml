@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121413"
+    android:padding="16dp">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#232323"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Perbandingan"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <!-- Input Section -->
+    <!-- Sederhanakan Pecahan -->
+    <TextView
+        android:id="@+id/tv_daftar_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Berbanding Terbalik"
+        android:textColor="#b0b0b0"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+    <TextView
+        android:id="@+id/tv_daftar_label1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Ketika kondisi berubah, hasilnya berubah pada tingkat yang sama, dalam arah yang berlawanan"
+        android:textColor="#b0b0b0"
+        android:paddingEnd="12dp"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label"
+        app:layout_constraintBottom_toTopOf="@id/tv_daftar_label_sub"/>
+
+    <TextView
+        android:id="@+id/tv_daftar_label_sub"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Kondisi"
+        android:textColor="#b0b0b0"
+        android:paddingEnd="12dp"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label1"
+        app:layout_constraintBottom_toTopOf="@id/et_input_a"/>
+
+    <TextView
+        android:id="@+id/tv_daftar_label_sub1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Hasil"
+        android:textColor="#b0b0b0"
+        android:paddingEnd="12dp"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/et_input_a"
+        app:layout_constraintBottom_toTopOf="@id/et_input_x"/>
+
+    <!-- Input Section Kondisi -->
+    <EditText
+        android:id="@+id/et_input_a"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="2dp"
+        android:background="#232323"
+        android:gravity="center"
+        android:hint="A"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub"
+        app:layout_constraintBottom_toTopOf="@id/tv_daftar_label_sub1"
+        />
+
+
+
+    <TextView
+        android:id="@+id/tv_hasil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:gravity="center"
+        android:padding="1dp"
+        android:textColor="#FFFFFF"
+        android:hint="→"
+        android:textColorHint="#B0B0B0"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub"
+        app:layout_constraintStart_toEndOf="@id/et_input_a"
+        app:layout_constraintEnd_toStartOf="@id/et_output_b"
+        />
+
+    <TextView
+        android:id="@+id/tv_hasil1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:gravity="center"
+        android:padding="1dp"
+        android:textColor="#FFFFFF"
+        android:hint="→"
+        android:textColorHint="#B0B0B0"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub1"
+        app:layout_constraintStart_toEndOf="@id/et_input_x"
+        app:layout_constraintEnd_toStartOf="@id/et_output_y"
+        />
+
+    <!-- Input Section b -->
+    <EditText
+        android:id="@+id/et_input_x"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
+        android:background="#232323"
+        android:gravity="center"
+        android:hint="X"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub1"
+        />
+
+    <!-- Hasil -->
+    <EditText
+        android:id="@+id/et_output_b"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
+        android:background="#232323"
+        android:gravity="center"
+        android:hint="B"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/et_output_y"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
+        android:background="#232323"
+        android:gravity="center"
+        android:hint="Y"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub1"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <!-- Input Section -->
+    <!-- Sederhanakan Pecahan -->
+    <TextView
+        android:id="@+id/tv_daftar_label2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Berbanding Lurus"
+        android:textColor="#b0b0b0"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/et_input_x"/>
+    <TextView
+        android:id="@+id/tv_daftar_label3"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Ketika kondisi berubah, hasilnya berubah pada tingkat yang sama, dalam arah yang sama"
+        android:textColor="#b0b0b0"
+        android:paddingEnd="12dp"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label2"
+        app:layout_constraintBottom_toTopOf="@id/tv_daftar_label_sub2"/>
+
+    <TextView
+        android:id="@+id/tv_daftar_label_sub2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Kondisi"
+        android:textColor="#b0b0b0"
+        android:paddingEnd="12dp"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label3"
+        app:layout_constraintBottom_toTopOf="@id/et_input_c"/>
+
+    <TextView
+        android:id="@+id/tv_daftar_label_sub3"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Hasil"
+        android:textColor="#b0b0b0"
+        android:paddingEnd="12dp"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/et_input_c"
+        app:layout_constraintBottom_toTopOf="@id/et_output_e"/>
+
+    <!-- Input Section Kondisi -->
+    <EditText
+        android:id="@+id/et_input_c"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="2dp"
+        android:background="#232323"
+        android:gravity="center"
+        android:hint="A"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub2"
+        app:layout_constraintBottom_toTopOf="@id/tv_daftar_label_sub3"
+        />
+
+
+
+    <TextView
+        android:id="@+id/tv_hasil2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:gravity="center"
+        android:padding="1dp"
+        android:textColor="#FFFFFF"
+        android:hint="→"
+        android:textColorHint="#B0B0B0"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub2"
+        app:layout_constraintStart_toEndOf="@id/et_input_c"
+        app:layout_constraintEnd_toStartOf="@id/et_output_d"
+        />
+
+    <TextView
+        android:id="@+id/tv_hasil3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:gravity="center"
+        android:padding="1dp"
+        android:textColor="#FFFFFF"
+        android:hint="→"
+        android:textColorHint="#B0B0B0"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub3"
+        app:layout_constraintStart_toEndOf="@id/et_input_e"
+        app:layout_constraintEnd_toStartOf="@id/et_output_f"
+        />
+
+    <!-- Input Section b -->
+    <EditText
+        android:id="@+id/et_input_e"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
+        android:background="#232323"
+        android:gravity="center"
+        android:hint="X"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub3"
+        />
+
+    <!-- Hasil -->
+    <EditText
+        android:id="@+id/et_output_d"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
+        android:background="#232323"
+        android:gravity="center"
+        android:hint="B"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub2"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/et_output_f"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
+        android:background="#232323"
+        android:gravity="center"
+        android:hint="Y"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub3"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <Button
+        android:id="@+id/clear_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginTop="12dp"
+        android:text="Clear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#444444"
+        android:textColor="#121413"
+        android:gravity="center"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_marginBottom="12dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
