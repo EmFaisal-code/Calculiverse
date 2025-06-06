@@ -1,0 +1,373 @@
+[33mcommit ca93aac221dd53091bc903ddbe078f090fa19394[m
+Author: Em-Faisal <emfaisal.work@gmail.com>
+Date:   Sat Jun 7 00:43:06 2025 +0700
+
+    Initial commit
+
+[1mdiff --git a/app/src/main/java/com/example/calculiverse/AljabarActivity.java b/app/src/main/java/com/example/calculiverse/AljabarActivity.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..55a75ff[m
+[1m--- /dev/null[m
+[1m+++ b/app/src/main/java/com/example/calculiverse/AljabarActivity.java[m
+[36m@@ -0,0 +1,52 @@[m
+[32m+[m[32mpackage com.example.calculiverse;[m
+[32m+[m
+[32m+[m[32mimport android.content.Intent;[m
+[32m+[m[32mimport android.os.Bundle;[m
+[32m+[m[32mimport android.widget.ArrayAdapter;[m
+[32m+[m[32mimport android.widget.ListView;[m
+[32m+[m[32mimport android.widget.Toast;[m
+[32m+[m
+[32m+[m[32mimport androidx.appcompat.app.AppCompatActivity;[m
+[32m+[m
+[32m+[m[32mpublic class AljabarActivity extends AppCompatActivity {[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    protected void onCreate(Bundle savedInstanceState) {[m
+[32m+[m[32m        super.onCreate(savedInstanceState);[m
+[32m+[m[32m        setContentView(R.layout.activity_aljabar);[m
+[32m+[m
+[32m+[m[32m        // Mengatur ListView untuk sub-kategori aljabar[m
+[32m+[m[32m        ListView listView = findViewById(R.id.lv_aljabar);[m
+[32m+[m[32m        String[] subKategori = getResources().getStringArray(R.array.kategori_aljabar);[m
+[32m+[m[41m        [m
+[32m+[m[32m        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,[m
+[32m+[m[32m            R.layout.item_list_aljabar,[m
+[32m+[m[32m            R.id.tv_item_aljabar,[m
+[32m+[m[32m            subKategori);[m
+[32m+[m[32m        listView.setAdapter(adapter);[m
+[32m+[m
+[32m+[m[32m        // Menambahkan click listener untuk setiap sub-kategori[m
+[32m+[m[32m        listView.setOnItemClickListener((parent, view, position, id) -> {[m
+[32m+[m[32m            String selectedSubKategori = subKategori[position];[m
+[32m+[m[41m            [m
+[32m+[m[32m            switch (selectedSubKategori) {[m
+[32m+[m[32m                case "Rata-rata":[m
+[32m+[m[32m                    Intent intent = new Intent(AljabarActivity.this, RataRataActivity.class);[m
+[32m+[m[32m                    startActivity(intent);[m
+[32m+[m[32m                    break;[m
+[32m+[m[32m                case "Perbandingan":[m
+[32m+[m[32m                    // TODO: Buat aktivitas untuk kalkulator Perbandingan[m
+[32m+[m[32m                    Toast.makeText(this, "Membuka kalkulator Perbandingan", Toast.LENGTH_SHORT).show();[m
+[32m+[m[32m                    break;[m
+[32m+[m[32m                case "Rasio":[m
+[32m+[m[32m                    // TODO: Buat aktivitas untuk kalkulator Rasio[m
+[32m+[m[32m                    Toast.makeText(this, "Membuka kalkulator Rasio", Toast.LENGTH_SHORT).show();[m
+[32m+[m[32m                    break;[m
+[32m+[m[32m                case "Pecahan":[m
+[32m+[m[32m                    // TODO: Buat aktivitas untuk kalkulator Pecahan[m
+[32m+[m[32m                    Toast.makeText(this, "Membuka kalkulator Pecahan", Toast.LENGTH_SHORT).show();[m
+[32m+[m[32m                    break;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        });[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m[41m [m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/java/com/example/calculiverse/Kategori.java b/app/src/main/java/com/example/calculiverse/Kategori.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5b9f2f0[m
+[1m--- /dev/null[m
+[1m+++ b/app/src/main/java/com/example/calculiverse/Kategori.java[m
+[36m@@ -0,0 +1,27 @@[m
+[32m+[m[32mpackage com.example.calculiverse;[m
+[32m+[m
+[32m+[m[32mpublic class Kategori {[m
+[32m+[m[32m    private String kategori;[m
+[32m+[m[32m    private String subkategori;[m
+[32m+[m
+[32m+[m[32m    public Kategori(String kategori, String subkategori) {[m
+[32m+[m[32m        this.kategori = kategori;[m
+[32m+[m[32m        this.subkategori = subkategori;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getKategori() {[m
+[32m+[m[32m        return kategori;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setKategori(String kategori) {[m
+[32m+[m[32m        this.kategori = kategori;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getSubkategori() {[m
+[32m+[m[32m        return subkategori;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setSubkategori(String subkategori) {[m
+[32m+[m[32m        this.subkategori = subkategori;[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m[41m [m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/java/com/example/calculiverse/RataRataActivity.java b/app/src/main/java/com/example/calculiverse/RataRataActivity.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2dc391c[m
+[1m--- /dev/null[m
+[1m+++ b/app/src/main/java/com/example/calculiverse/RataRataActivity.java[m
+[36m@@ -0,0 +1,64 @@[m
+[32m+[m[32mpackage com.example.calculiverse;[m
+[32m+[m
+[32m+[m[32mimport android.os.Bundle;[m
+[32m+[m[32mimport android.text.TextUtils;[m
+[32m+[m[32mimport android.widget.EditText;[m
+[32m+[m[32mimport android.widget.TextView;[m
+[32m+[m
+[32m+[m[32mimport androidx.appcompat.app.AppCompatActivity;[m
+[32m+[m
+[32m+[m[32mpublic class RataRataActivity extends AppCompatActivity {[m
+[32m+[m[32m    private EditText etInputA, etInputB;[m
+[32m+[m[32m    private TextView tvHasil;[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    protected void onCreate(Bundle savedInstanceState) {[m
+[32m+[m[32m        super.onCreate(savedInstanceState);[m
+[32m+[m[32m        setContentView(R.layout.activity_rata_rata);[m
+[32m+[m
+[32m+[m[32m        etInputA = findViewById(R.id.et_input_a);[m
+[32m+[m[32m        etInputB = findViewById(R.id.et_input_b);[m
+[32m+[m[32m        tvHasil = findViewById(R.id.tv_hasil);[m
+[32m+[m
+[32m+[m[32m        // Tambahkan TextWatcher ke kedua input[m
+[32m+[m[32m        etInputA.addTextChangedListener(new android.text.TextWatcher() {[m
+[32m+[m[32m            @Override[m
+[32m+[m[32m            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}[m
+[32m+[m[32m            @Override[m
+[32m+[m[32m            public void onTextChanged(CharSequence s, int start, int before, int count) {[m
+[32m+[m[32m                hitungRataRata();[m
+[32m+[m[32m            }[m
+[32m+[m[32m            @Override[m
+[32m+[m[32m            public void afterTextChanged(android.text.Editable s) {}[m
+[32m+[m[32m        });[m
+[32m+[m[32m        etInputB.addTextChangedListener(new android.text.TextWatcher() {[m
+[32m+[m[32m            @Override[m
+[32m+[m[32m            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}[m
+[32m+[m[32m            @Override[m
+[32m+[m[32m            public void onTextChanged(CharSequence s, int start, int before, int count) {[m
+[32m+[m[32m                hitungRataRata();[m
+[32m+[m[32m            }[m
+[32m+[m[32m            @Override[m
+[32m+[m[32m            public void afterTextChanged(android.text.Editable s) {}[m
+[32m+[m[32m        });[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    private void hitungRataRata() {[m
+[32m+[m[32m        String inputA = etInputA.getText().toString().trim();[m
+[32m+[m[32m        String inputB = etInputB.getText().toString().trim();[m
+[32m+[m
+[32m+[m[32m        if (TextUtils.isEmpty(inputA) || TextUtils.isEmpty(inputB)) {[m
+[32m+[m[32m            tvHasil.setText("");[m
+[32m+[m[32m            return;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        try {[m
+[32m+[m[32m            double angkaA = Double.parseDouble(inputA);[m
+[32m+[m[32m            double angkaB = Double.parseDouble(inputB);[m
+[32m+[m[32m            double rataRata = (angkaA + angkaB) / 2.0;[m
+[32m+[m[32m            tvHasil.setText(String.format(" %.2f", rataRata));[m
+[32m+[m[32m        } catch (NumberFormatException e) {[m
+[32m+[m[32m            tvHasil.setText("");[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m[41m [m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/res/drawable/ic_calculate.png b/app/src/main/res/drawable/ic_calculate.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ca91661[m
+Binary files /dev/null and b/app/src/main/res/drawable/ic_calculate.png differ
+[1mdiff --git a/app/src/main/res/drawable/ic_home.png b/app/src/main/res/drawable/ic_home.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..98033e1[m
+Binary files /dev/null and b/app/src/main/res/drawable/ic_home.png differ
+[1mdiff --git a/app/src/main/res/drawable/rounded_button.xml b/app/src/main/res/drawable/rounded_button.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..305ea33[m
+[1m--- /dev/null[m
+[1m+++ b/app/src/main/res/drawable/rounded_button.xml[m
+[36m@@ -0,0 +1,5 @@[m
+[32m+[m[32m<shape xmlns:android="http://schemas.android.com/apk/res/android">[m
+[32m+[m[32m    <solid android:color="#00E676"/>[m
+[32m+[m[32m    <stroke android:width="1dp" android:color="#444444"/>[m
+[32m+[m[32m    <corners android:radius="1dp"/>[m
+[32m+[m[32m</shape>[m[41m [m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/res/layout/activity_aljabar.xml b/app/src/main/res/layout/activity_aljabar.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a3b2a2d[m
+[1m--- /dev/null[m
+[1m+++ b/app/src/main/res/layout/activity_aljabar.xml[m
+[36m@@ -0,0 +1,39 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"[m
+[32m+[m[32m    xmlns:app="http://schemas.android.com/apk/res-auto"[m
+[32m+[m[32m    android:layout_width="match_parent"[m
+[32m+[m[32m    android:layout_height="match_parent"[m
+[32m+[m[32m    android:background="#121413">[m
+[32m+[m
+[32m+[m[32m    <!-- Toolbar -->[m
+[32m+[m[32m    <androidx.appcompat.widget.Toolbar[m
+[32m+[m[32m        android:id="@+id/toolbar"[m
+[32m+[m[32m        android:layout_width="match_parent"[m
+[32m+[m[32m        android:layout_height="?attr/actionBarSize"[m
+[32m+[m[32m        android:background="#232323"[m
+[32m+[m[32m        app:layout_constraintTop_toTopOf="parent">[m
+[32m+[m
+[32m+[m[32m        <TextView[m
+[32m+[m[32m            android:layout_width="wrap_content"[m
+[32m+[m[32m            android:layout_height="wrap_content"[m
+[32m+[m[32m            android:layout_gravity="center"[m
+[32m+[m[32m            android:text="Kalkulator Aljabar"[m
+[32m+[m[32m            android:textColor="#FFFFFF"[m
+[32m+[m[32m            android:textSize="18sp"[m
+[32m+[m[32m            android:textStyle="bold" />[m
+[32m+[m
+[32m+[m[32m    </androidx.appcompat.widget.Toolbar>[m
+[32m+[m
+[32m+[m[32m    <!-- ListView untuk sub-kategori -->[m
+[32m+[m[32m    <ListView[m
+[32m+[m[32m        android:id="@+id/lv_aljabar"[m
+[32m+[m[32m        android:layout_width="match_parent"[m
+[32m+[m[32m        android:layout_height="0dp"[m
+[32m+[m[32m        android:background="#121413"[m
+[32m+[m[32m        android:divider="#232323"[m
+[32m+[m[32m        android:dividerHeight="1dp"[m
+[32m+[m[32m        android:padding="16dp"[m
+[32m+[m[32m        app:layout_constraintBottom_toBottomOf="parent"[m
+[32m+[m[32m        app:layout_constraintTop_toBottomOf="@id/toolbar" />[m
+[32m+[m
+[32m+[m[32m</androidx.constraintlayout.widget.ConstraintLayout>[m[41m [m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/res/layout/activity_rata_rata.xml b/app/src/main/res/layout/activity_rata_rata.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c8f7ec0[m
+[1m--- /dev/null[m
+[1m+++ b/app/src/main/res/layout/activity_rata_rata.xml[m
+[36m@@ -0,0 +1,113 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"[m
+[32m+[m[32m    xmlns:app="http://schemas.android.com/apk/res-auto"[m
+[32m+[m[32m    android:layout_width="match_parent"[m
+[32m+[m[32m    android:layout_height="match_parent"[m
+[32m+[m[32m    android:background="#121413"[m
+[32m+[m[32m    android:fitsSystemWindows="true"[m
+[32m+[m[32m    android:padding="16dp">[m
+[32m+[m
+[32m+[m[32m    <!-- Toolbar -->[m
+[32m+[m[32m    <androidx.appcompat.widget.Toolbar[m
+[32m+[m[32m        android:id="@+id/toolbar"[m
+[32m+[m[32m        android:layout_width="match_parent"[m
+[32m+[m[32m        android:layout_height="?attr/actionBarSize"[m
+[32m+[m[32m        android:background="#232323"[m
+[32m+[m[32m        app:layout_constraintTop_toTopOf="parent">[m
+[32m+[m
+[32m+[m[32m        <TextView[m
+[32m+[m[32m            android:layout_width="wrap_content"[m
+[32m+[m[32m            android:layout_height="wrap_content"[m
+[32m+[m[32m            android:layout_gravity="center"[m
+[32m+[m[32m            android:text="Rata-rata"[m
+[32m+[m[32m            android:textColor="#FFFFFF"[m
+[32m+[m[32m            android:textSize="18sp"[m
+[32m+[m[32m            android:textStyle="bold" />[m
+[32m+[m
+[32m+[m[32m    </androidx.appcompat.widget.Toolbar>[m
+[32m+[m
+[32m+[m[32m    <!-- Input Section -->[m
+[32m+[m[32m    <EditText[m
+[32m+[m[32m        android:id="@+id/et_input_a"[m
+[32m+[m[32m        android:layout_width="0dp"[m
+[32m+[m[32m        android:layout_height="wrap_content"[m
+[32m+[m[32m        android:layout_marginTop="24dp"[m
+[32m+[m[32m        android:layout_marginEnd="6dp"[m
+[32m+[m[32m        android:background="#232323"[m
+[32m+[m[32m        android:hint="A"[m
+[32m+[m[32m        android:inputType="numberDecimal"[m
+[32m+[m[32m        android:padding="12dp"[m
+[32m+[m[32m        android:textColor="#FFFFFF"[m
+[32m+[m[32m        android:textColorHint="#B0B0B0"[m
+[32m+[m[32m        app:layout_constraintEnd_toStartOf="@id/et_input_b"[m
+[32m+[m[32m        app:layout_constraintStart_toStartOf="parent"[m
+[32m+[m[32m        app:layout_constraintTop_toBottomOf="@id/toolbar" />[m
+[32m+[m
+[32m+[m[32m    <EditText[m
+[32m+[m[32m        android:id="@+id/et_input_b"[m
+[32m+[m[32m        android:layout_width="0dp"[m
+[32m+[m[32m        android:layout_height="wrap_content"[m
+[32m+[m[32m        android:layout_marginTop="24dp"[m
+[32m+[m[32m        android:layout_marginStart="6dp"[m
+[32m+[m[32m        android:background="#232323"[m
+[32m+[m[32m        android:hint="B"[m
+[32m+[m[32m        android:inputType="numberDecimal"[m
+[32m+[m[32m        android:padding="12dp"[m
+[32m+[m[32m        android:textColor="#FFFFFF"[m
+[32m+[m[32m        android:textColorHint="#B0B0B0"[m
+[32m+[m[32m        app:layout_constraintStart_toEndOf="@+id/et_input_a"[m
+[32m+[m[32m        app:layout_constraintEnd_toEndOf="parent"[m
+[32m+[m[32m        app:layout_constraintTop_toBottomOf="@id/toolbar"[m
+[32m+[m[32m        />[m
+[32m+[m
+[32m+[m[32m<!--    <Button-->[m
+[32m+[m[32m<!--        android:id="@+id/btn_tambah"-->[m
+[32m+[m[32m<!--        android:layout_width="wrap_content"-->[m
+[32m+[m[32m<!--        android:layout_height="wrap_content"-->[m
+[32m+[m[32m<!--        android:layout_marginStart="8dp"-->[m
+[32m+[m[32m<!--        android:backgroundTint="#4CAF50"-->[m
+[32m+[m[32m<!--        android:text="Tambah"-->[m
+[32m+[m[32m<!--        android:textColor="#FFFFFF"-->[m
+[32m+[m[32m<!--        app:layout_constraintBottom_toBottomOf="@id/et_input_a"-->[m
+[32m+[m[32m<!--        app:layout_constraintEnd_toEndOf="parent"-->[m
+[32m+[m[32m<!--        app:layout_constraintTop_toTopOf="@id/et_input_a" />-->[m
+[32m+[m
+[32m+[m[32m    <!-- Daftar Angka -->[m
+[32m+[m[32m    <TextView[m
+[32m+[m[32m        android:id="@+id/tv_daftar_label"[m
+[32m+[m[32m        android:layout_width="wrap_content"[m
+[32m+[m[32m        android:layout_height="wrap_content"[m
+[32m+[m[32m        android:layout_marginTop="24dp"[m
+[32m+[m[32m        android:text="Hasil"[m
+[32m+[m[32m        android:textColor="#B0B0B0"[m
+[32m+[m[32m        android:textSize="14sp"[m
+[32m+[m[32m        app:layout_constraintStart_toStartOf="parent"[m
+[32m+[m[32m        app:layout_constraintTop_toBottomOf="@id/et_input_a" />[m
+[32m+[m
+[32m+[m[32m<!--    <TextView-->[m
+[32m+[m[32m<!--        android:id="@+id/tv_daftar_angka"-->[m
+[32m+[m[32m<!--        android:layout_width="match_parent"-->[m
+[32m+[m[32m<!--        android:layout_height="wrap_content"-->[m
+[32m+[m[32m<!--        android:layout_marginTop="8dp"-->[m
+[32m+[m[32m<!--        android:background="#232323"-->[m
+[32m+[m[32m<!--        android:padding="12dp"-->[m
+[32m+[m[32m<!--        android:textColor="#FFFFFF"-->[m
+[32m+[m[32m<!--        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label" />-->[m
+[32m+[m
+[32m+[m[32m    <!-- Hasil -->[m
+[32m+[m[32m    <TextView[m
+[32m+[m[32m        android:id="@+id/tv_hasil"[m
+[32m+[m[32m        android:layout_width="match_parent"[m
+[32m+[m[32m        android:layout_height="wrap_content"[m
+[32m+[m[32m        android:layout_marginTop="24dp"[m
+[32m+[m[32m        android:background="#232323"[m
+[32m+[m[32m        android:gravity="center"[m
+[32m+[m[32m        android:padding="16dp"[m
+[32m+[m[32m        android:textColor="#FFFFFF"[m
+[32m+[m[32m        android:hint="Aritmatika"[m
+[32m+[m[32m        android:textColorHint="#B0B0B0"[m
+[32m+[m[32m        android:textSize="18sp"[m
+[32m+[m[32m        android:textStyle="bold"[m
+[32m+[m[32m        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label" />[m
+[32m+[m
+[32m+[m[32m</androidx.constraintlayout.widget.ConstraintLayout>[m[41m [m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/res/layout/item_list_aljabar.xml b/app/src/main/res/layout/item_list_aljabar.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..03be7e4[m
+[1m--- /dev/null[m
+[1m+++ b/app/src/main/res/layout/item_list_aljabar.xml[m
+[36m@@ -0,0 +1,10 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<TextView xmlns:android="http://schemas.android.com/apk/res/android"[m
+[32m+[m[32m    android:id="@+id/tv_item_aljabar"[m
+[32m+[m[32m    android:layout_width="match_parent"[m
+[32m+[m[32m    android:layout_height="wrap_content"[m
+[32m+[m[32m    android:padding="16dp"[m
+[32m+[m[32m    android:textColor="#FFFFFF"[m
+[32m+[m[32m    android:textSize="16sp"[m
+[32m+[m[32m    android:background="?android:attr/selectableItemBackground"[m
+[32m+[m[32m    android:gravity="center_vertical"/>[m[41m [m
+\ No newline at end of file[m

@@ -20,6 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AljabarActivity" />
+        <activity android:name=".RataRataActivity" />
+        <activity android:name=".PecahanActivity" />
+        <activity android:name=".PerbandinganActivity" />
     </application>
 
 </manifest>

@@ -11,7 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PecahanActivity extends AppCompatActivity {
     private EditText etInputA, etInputB;
-    private TextView etOutputX, etOutputY, tvHasil;
+    private EditText etOutputX, etOutputY;
+    private EditText etInputC;
+    private EditText etOutputD, etOutputE;
+    private TextView tvHasil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,9 @@ public class PecahanActivity extends AppCompatActivity {
         etInputB = findViewById(R.id.et_input_b);
         etOutputX = findViewById(R.id.et_output_x);
         etOutputY = findViewById(R.id.et_output_y);
+        etInputC = findViewById(R.id.et_input_c);
+        etOutputD = findViewById(R.id.et_output_d);
+        etOutputE = findViewById(R.id.et_output_e);
         tvHasil = findViewById(R.id.tv_hasil);
 
         // Tambahkan listener untuk setiap input
@@ -34,54 +40,26 @@ public class PecahanActivity extends AppCompatActivity {
         etInputA.addTextChangedListener(new android.text.TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hitungPecahan();
-            }
-
+            public void onTextChanged(CharSequence s, int start, int before, int count) { hitungPecahan(); }
             @Override
             public void afterTextChanged(android.text.Editable s) {}
         });
-
         // Listener untuk input B
         etInputB.addTextChangedListener(new android.text.TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hitungPecahan();
-            }
-
+            public void onTextChanged(CharSequence s, int start, int before, int count) { hitungPecahan(); }
             @Override
             public void afterTextChanged(android.text.Editable s) {}
         });
-
-        // Listener untuk input X
-        etOutputX.addTextChangedListener(new android.text.TextWatcher() {
+        // Listener untuk desimal ke pecahan
+        etInputC.addTextChangedListener(new android.text.TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hitungPecahan();
-            }
-
-            @Override
-            public void afterTextChanged(android.text.Editable s) {}
-        });
-
-        // Listener untuk input Y
-        etOutputY.addTextChangedListener(new android.text.TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                hitungPecahan();
-            }
-
+            public void onTextChanged(CharSequence s, int start, int before, int count) { desimalKePecahan(); }
             @Override
             public void afterTextChanged(android.text.Editable s) {}
         });
@@ -91,14 +69,6 @@ public class PecahanActivity extends AppCompatActivity {
         // Ambil nilai dari input
         String strA = etInputA.getText().toString();
         String strB = etInputB.getText().toString();
-        String strX = etOutputX.getText().toString();
-        String strY = etOutputY.getText().toString();
-
-        // Jika X dan Y sudah diisi, tampilkan sebagai pecahan
-        if (!TextUtils.isEmpty(strX) && !TextUtils.isEmpty(strY)) {
-            tvHasil.setText(strX + "/" + strY);
-            return;
-        }
 
         // Jika input A dan B diisi, lakukan perhitungan
         if (!TextUtils.isEmpty(strA) && !TextUtils.isEmpty(strB)) {
@@ -116,13 +86,43 @@ public class PecahanActivity extends AppCompatActivity {
                     etOutputY.setText(String.valueOf(penyebut));
                     tvHasil.setText(pembilang + "/" + penyebut);
                 } else {
+                    etOutputX.setText("");
+                    etOutputY.setText("");
                     tvHasil.setText("-");
                 }
             } catch (NumberFormatException e) {
+                etOutputX.setText("");
+                etOutputY.setText("");
                 tvHasil.setText("-");
             }
         } else {
+            etOutputX.setText("");
+            etOutputY.setText("");
             tvHasil.setText("");
+        }
+    }
+
+    // Fungsi untuk desimal ke pecahan
+    private void desimalKePecahan() {
+        String strC = etInputC.getText().toString();
+        if (TextUtils.isEmpty(strC)) {
+            if (etOutputD != null) etOutputD.setText("");
+            if (etOutputE != null) etOutputE.setText("");
+            return;
+        }
+        try {
+            double value = Double.parseDouble(strC);
+            int decimalPlaces = getDecimalPlaces(strC);
+            int denominator = (int) Math.pow(10, decimalPlaces);
+            int numerator = (int) Math.round(value * denominator);
+            int gcd = gcd(numerator, denominator);
+            numerator /= gcd;
+            denominator /= gcd;
+            if (etOutputD != null) etOutputD.setText(String.valueOf(numerator));
+            if (etOutputE != null) etOutputE.setText(String.valueOf(denominator));
+        } catch (Exception e) {
+            if (etOutputD != null) etOutputD.setText("");
+            if (etOutputE != null) etOutputE.setText("");
         }
     }
 
@@ -130,5 +130,12 @@ public class PecahanActivity extends AppCompatActivity {
     private int gcd(int a, int b) {
         if (b == 0) return a;
         return gcd(b, a % b);
+    }
+
+    // Fungsi untuk menghitung jumlah angka di belakang koma
+    private int getDecimalPlaces(String value) {
+        int index = value.indexOf('.');
+        if (index < 0) return 0;
+        return value.length() - index - 1;
     }
 }
