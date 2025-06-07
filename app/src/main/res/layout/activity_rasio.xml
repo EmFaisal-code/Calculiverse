@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#121413"
     android:fitsSystemWindows="true"
+    tools:context=".RasioActivity"
     android:padding="16dp">
 
     <!-- Toolbar -->
@@ -20,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Perbandingan"
+            android:text="Rasio"
             android:textColor="#FFFFFF"
             android:textSize="26sp"
             android:textStyle="bold" />
@@ -32,45 +33,58 @@
     <!-- Input Section -->
     <!-- Sederhanakan Pecahan -->
     <TextView
-        android:id="@+id/tv_daftar_label"
+        android:id="@+id/tv_daftar_label_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Berbanding Terbalik"
+        android:text="Redaksi"
         android:textColor="#b0b0b0"
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/toolbar"/>
     <TextView
-        android:id="@+id/tv_daftar_label1"
+        android:id="@+id/tv_metode_1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Ketika kondisi berubah, hasilnya berubah pada tingkat yang sama, dalam arah yang berlawanan"
+        android:layout_marginTop="4dp"
+        android:text="Temukan rasio dua nilai"
         android:textColor="#b0b0b0"
         android:paddingEnd="12dp"
         android:textSize="10sp"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label"
-        app:layout_constraintBottom_toTopOf="@id/tv_daftar_label_sub"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_1"
+        app:layout_constraintBottom_toTopOf="@id/tv_label_sub_1"/>
+
+    <ImageButton
+        android:id="@+id/button_info_metode_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/rounded_button"
+        android:src="@drawable/info_icon"
+        android:text="info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_metode_1"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
-        android:id="@+id/tv_daftar_label_sub"
+        android:id="@+id/tv_label_sub_1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Kondisi"
+        android:layout_marginTop="16dp"
+        android:text="Nilai-nilai"
         android:textColor="#b0b0b0"
         android:paddingEnd="12dp"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label1"
+        app:layout_constraintTop_toBottomOf="@id/tv_metode_1"
         app:layout_constraintBottom_toTopOf="@id/et_input_a"/>
 
     <TextView
-        android:id="@+id/tv_daftar_label_sub1"
+        android:id="@+id/tv_label_sub_2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Hasil"
+        android:text="Rasio"
         android:textColor="#b0b0b0"
         android:paddingEnd="12dp"
         android:textSize="12sp"
@@ -94,8 +108,8 @@
         android:padding="12dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#B0B0B0"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub"
-        app:layout_constraintBottom_toTopOf="@id/tv_daftar_label_sub1"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_sub_1"
+        app:layout_constraintBottom_toTopOf="@id/tv_label_sub_2"
         />
 
 
@@ -108,13 +122,13 @@
         android:gravity="center"
         android:padding="1dp"
         android:textColor="#FFFFFF"
-        android:hint="→"
+        android:hint=":"
         android:textColorHint="#B0B0B0"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_sub_1"
         app:layout_constraintStart_toEndOf="@id/et_input_a"
-        app:layout_constraintEnd_toStartOf="@id/et_output_b"
+        app:layout_constraintEnd_toStartOf="@id/et_input_b"
         />
 
     <TextView
@@ -125,18 +139,18 @@
         android:gravity="center"
         android:padding="1dp"
         android:textColor="#FFFFFF"
-        android:hint="→"
+        android:hint=":"
         android:textColorHint="#B0B0B0"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub1"
-        app:layout_constraintStart_toEndOf="@id/et_input_x"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_sub_2"
+        app:layout_constraintStart_toEndOf="@id/et_output_x"
         app:layout_constraintEnd_toStartOf="@id/et_output_y"
         />
 
     <!-- Input Section b -->
     <EditText
-        android:id="@+id/et_input_x"
+        android:id="@+id/et_output_x"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -149,12 +163,12 @@
         android:padding="12dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#B0B0B0"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub1"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_sub_2"
         />
 
     <!-- Hasil -->
     <EditText
-        android:id="@+id/et_output_b"
+        android:id="@+id/et_input_b"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -167,7 +181,7 @@
         android:padding="12dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#B0B0B0"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_sub_1"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
@@ -185,52 +199,65 @@
         android:padding="12dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#B0B0B0"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub1"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_sub_2"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
     <!-- Input Section -->
     <!-- Sederhanakan Pecahan -->
     <TextView
-        android:id="@+id/tv_daftar_label2"
+        android:id="@+id/tv_daftar_label_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Berbanding Lurus"
+        android:text="Deduksi"
         android:textColor="#b0b0b0"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/et_input_x"/>
+        app:layout_constraintTop_toBottomOf="@id/et_output_x"/>
     <TextView
-        android:id="@+id/tv_daftar_label3"
+        android:id="@+id/tv_metode_2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Ketika kondisi berubah, hasilnya berubah pada tingkat yang sama, dalam arah yang sama"
+        android:layout_marginTop="4dp"
+        android:text="Temukan nilai yang hilang berdasarkan rasio"
         android:textColor="#b0b0b0"
         android:paddingEnd="12dp"
         android:textSize="10sp"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label2"
-        app:layout_constraintBottom_toTopOf="@id/tv_daftar_label_sub2"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_2"
+        app:layout_constraintBottom_toTopOf="@id/tv_label_sub_3"/>
+
+    <ImageButton
+        android:id="@+id/button_info_metode_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/rounded_button"
+        android:src="@drawable/info_icon"
+        android:text="info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_metode_2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_daftar_label_2" />
 
     <TextView
-        android:id="@+id/tv_daftar_label_sub2"
+        android:id="@+id/tv_label_sub_3"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Kondisi"
+        android:text="Rasio"
         android:textColor="#b0b0b0"
         android:paddingEnd="12dp"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label3"
+        app:layout_constraintTop_toBottomOf="@id/tv_metode_2"
         app:layout_constraintBottom_toTopOf="@id/et_input_c"/>
 
     <TextView
-        android:id="@+id/tv_daftar_label_sub3"
+        android:id="@+id/tv_label_sub_4"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Hasil"
+        android:text="Nilai-nilai"
         android:textColor="#b0b0b0"
         android:paddingEnd="12dp"
         android:textSize="12sp"
@@ -248,13 +275,13 @@
         android:layout_marginBottom="2dp"
         android:background="#232323"
         android:gravity="center"
-        android:hint="A"
+        android:hint="X"
         android:inputType="numberDecimal"
         android:padding="12dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#B0B0B0"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub2"
-        app:layout_constraintBottom_toTopOf="@id/tv_daftar_label_sub3"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_sub_3"
+        app:layout_constraintBottom_toTopOf="@id/tv_label_sub_4"
         />
 
 
@@ -267,13 +294,13 @@
         android:gravity="center"
         android:padding="1dp"
         android:textColor="#FFFFFF"
-        android:hint="→"
+        android:hint=":"
         android:textColorHint="#B0B0B0"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub2"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_sub_3"
         app:layout_constraintStart_toEndOf="@id/et_input_c"
-        app:layout_constraintEnd_toStartOf="@id/et_output_d"
+        app:layout_constraintEnd_toStartOf="@id/et_input_d"
         />
 
     <TextView
@@ -284,54 +311,36 @@
         android:gravity="center"
         android:padding="1dp"
         android:textColor="#FFFFFF"
-        android:hint="→"
+        android:hint=":"
         android:textColorHint="#B0B0B0"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub3"
-        app:layout_constraintStart_toEndOf="@id/et_input_e"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_sub_4"
+        app:layout_constraintStart_toEndOf="@id/et_output_e"
         app:layout_constraintEnd_toStartOf="@id/et_output_f"
         />
 
     <!-- Input Section b -->
     <EditText
-        android:id="@+id/et_input_e"
+        android:id="@+id/et_output_e"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="6dp"
         android:background="#232323"
         android:gravity="center"
-        android:hint="X"
+        android:hint="A"
         android:inputType="numberDecimal"
         android:textSize="18sp"
         android:padding="12dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#B0B0B0"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub3"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_sub_4"
         />
 
     <!-- Hasil -->
     <EditText
-        android:id="@+id/et_output_d"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="6dp"
-        android:background="#232323"
-        android:gravity="center"
-        android:hint="B"
-        android:inputType="numberDecimal"
-        android:textSize="18sp"
-        android:padding="12dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#B0B0B0"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub2"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-
-    <EditText
-        android:id="@+id/et_output_f"
+        android:id="@+id/et_input_d"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -344,28 +353,39 @@
         android:padding="12dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#B0B0B0"
-        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_sub3"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_sub_3"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
-    <Button
+    <EditText
+        android:id="@+id/et_output_f"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
+        android:background="#232323"
+        android:gravity="center"
+        android:hint="B"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_sub_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ImageButton
         android:id="@+id/clear_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
         android:layout_marginTop="12dp"
-        android:text="Clear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_marginEnd="6dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="#444444"
-        android:textColor="#121413"
         android:gravity="center"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:layout_marginBottom="12dp"/>
+        android:src="@drawable/clear_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

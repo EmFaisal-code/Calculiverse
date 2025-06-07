@@ -90,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case "Rasio":
-                        Toast.makeText(MainActivity.this, "Membuka kalkulator Rasio", Toast.LENGTH_SHORT).show();
+                        intent = new Intent(MainActivity.this, RasioActivity.class);
+                        startActivity(intent);
                         break;
                 }
             }

@@ -6,7 +6,7 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.10.1"
 constraintlayout = "2.2.1"
-agp = "8.4.0" # <--- tambahkan ini
+agp = "8.9.2" # <--- tambahkan ini
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
