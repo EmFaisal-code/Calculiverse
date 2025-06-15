@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121413"
+    android:fitsSystemWindows="true"
+    tools:context=".BungaActivity"
+    android:padding="16dp">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#232323"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Bunga"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <!-- Input Section -->
+    <!-- Sederhanakan Pecahan -->
+    <TextView
+        android:id="@+id/tv_daftar_label_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Hitung"
+        android:textColor="#b0b0b0"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/formBunga"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_daftar_label_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToggleForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:cornerRadius="6dp"
+            android:backgroundTint="#232323"
+            android:text="Bunga Sederhana" />
+
+        <LinearLayout
+            android:id="@+id/layoutBungaSederhana"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:padding="8dp"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!--KolomKiri-->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Deposit"
+                            android:layout_marginStart="6dp"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nilai awal"
+                            android:layout_marginStart="6dp"
+                            android:textColor="#ffffff"
+                            android:textSize="12sp"
+                            android:layout_marginTop="4dp"
+                            />
+                        <EditText
+                            android:id="@+id/et_input_deposit"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/edittext_rounded_corners"
+                            android:hint="- -"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textColorHint="#B0B0B0"
+                            android:textColor="#ffffff"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Periode"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginStart="6dp"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+                        <EditText
+                            android:id="@+id/et_input_periode"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/edittext_rounded_corners"
+                            android:hint="- -"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textColorHint="#B0B0B0"
+                            android:textColor="#ffffff"
+                            />
+
+
+                    </LinearLayout>
+
+                    <!--KolomKanan-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kurs"
+                            android:layout_marginStart="6dp"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Per tahun"
+                            android:textColor="#ffffff"
+                            android:layout_marginStart="6dp"
+                            android:textSize="12sp"
+                            android:layout_marginTop="4dp"
+                            />
+                        <EditText
+                        android:id="@+id/et_input_kurs"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/edittext_rounded_corners"
+                        android:hint="- -"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textColorHint="#B0B0B0"
+                        android:textColor="#ffffff"
+                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:layout_marginTop="16dp"
+                            android:layout_marginStart="6dp"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPeriode"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginStart="6dp"
+                            app:cornerRadius="8dp"
+                            android:backgroundTint="#232323"
+                            android:text="Bulan" />
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+    <!-- Layout untuk Bunga Majemuk -->
+        <LinearLayout
+            android:id="@+id/layoutBungaMajemuk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="8dp"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!--KolomKiri-->
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Deposit"
+                            android:layout_marginStart="6dp"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nilai awal"
+                            android:layout_marginStart="6dp"
+                            android:textColor="#ffffff"
+                            android:textSize="12sp"
+                            android:layout_marginTop="4dp"
+                            />
+                        <EditText
+                            android:id="@+id/et_input_deposit_majemuk"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/edittext_rounded_corners"
+                            android:hint="- -"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textColorHint="#B0B0B0"
+                            android:textColor="#ffffff"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Periode"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginStart="6dp"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+                        <EditText
+                            android:id="@+id/et_input_periode_majemuk"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="6dp"
+                            android:background="@drawable/edittext_rounded_corners"
+                            android:hint="- -"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textColorHint="#B0B0B0"
+                            android:textColor="#ffffff"
+                            />
+
+
+                    </LinearLayout>
+
+                    <!--KolomKanan-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kurs"
+                            android:layout_marginStart="6dp"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Per tahun"
+                            android:textColor="#ffffff"
+                            android:layout_marginStart="6dp"
+                            android:textSize="12sp"
+                            android:layout_marginTop="4dp"
+                            />
+                        <EditText
+                            android:id="@+id/et_input_kurs_majemuk"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginStart="6dp"
+                            android:background="@drawable/edittext_rounded_corners"
+                            android:hint="- -"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textColorHint="#B0B0B0"
+                            android:textColor="#ffffff"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:layout_marginTop="16dp"
+                            android:layout_marginStart="6dp"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPeriodeMajemuk"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginStart="6dp"
+                            app:cornerRadius="8dp"
+                            android:backgroundTint="#232323"
+                            android:text="Bulan" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <!-- Majemuk -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Majemuk"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="6dp"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnMajemuk"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginStart="6dp"
+                        app:cornerRadius="8dp"
+                        android:backgroundTint="#232323"
+                        android:text="Harian" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/formBunga">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hasil"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="6dp"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity=""
+            android:layout_weight="1"
+            android:background="@drawable/edittext_rounded_corners"
+            android:layout_marginTop="12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"
+                android:gravity=""
+                android:textColor="#FFFFFF"
+                android:text="Nilai Akhir"/>
+
+            <TextView
+                android:id="@+id/tv_output_nilai_akhir"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"
+                android:paddingEnd="12dp"
+                android:gravity="end"
+                android:text="- -"
+                android:inputType="numberDecimal"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity=""
+            android:layout_weight="2"
+            android:background="@drawable/edittext_rounded_corners"
+            android:layout_marginTop="-12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:gravity=""
+                android:textColor="#FFFFFF"
+                android:text="Bunga"/>
+
+            <TextView
+                android:id="@+id/tv_output_bunga"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:paddingEnd="12dp"
+                android:gravity="end"
+                android:text="- -"
+                android:inputType="numberDecimal"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!-- button clear -->
+    <ImageButton
+        android:id="@+id/clear_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/rounded_button"
+        android:gravity="center"
+        android:src="@drawable/clear_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

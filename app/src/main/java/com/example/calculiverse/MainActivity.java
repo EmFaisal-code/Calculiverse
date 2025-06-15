@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Kategori> keuanganData = new ArrayList<>();
         keuanganData.add(new Kategori("Keuangan", "Bunga"));
-        keuanganData.add(new Kategori("Keuangan", "Investasi"));
+        keuanganData.add(new Kategori("Keuangan", "Harga satuan"));
 
         ArrayList<Kategori> kesehatanData = new ArrayList<>();
         kesehatanData.add(new Kategori("Kesehatan", "BMI"));
@@ -93,6 +93,15 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, RasioActivity.class);
                         startActivity(intent);
                         break;
+                    case "Bunga":
+                        intent = new Intent(MainActivity.this, BungaActivity.class);
+                        startActivity(intent);
+                        break;
+                    case "Harga satuan":
+                            intent = new Intent (MainActivity.this, HargaSatuanActivity.class);
+                            startActivity(intent);
+                        break;
+
                 }
             }
         });
