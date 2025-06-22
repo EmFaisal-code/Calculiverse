@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121413"
+    android:fitsSystemWindows="true"
+    tools:context=".IndeksMassaTubuhActivity"
+    android:padding="16dp">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#232323"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Indeks massa tubuh"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tinggi"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                android:textSize="20sp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_rounded_corners"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_height"/>
+                <EditText
+                    android:id="@+id/et_tinggi"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="- -"
+                    android:gravity="end"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:textSize="20sp"
+                    android:padding="0dp"
+                    android:layout_marginEnd="12dp"
+                    android:textColorHint="#B0B0B0"
+                    android:textColor="#FFFFFF"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cm"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Berat"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                android:textSize="20sp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="24dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_rounded_corners"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_timbangan"/>
+                <EditText
+                    android:id="@+id/et_berat"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="- -"
+                    android:inputType="number"
+                    android:gravity="end"
+                    android:background="@android:color/transparent"
+                    android:textSize="20sp"
+                    android:padding="0dp"
+                    android:layout_marginEnd="12dp"
+                    android:textColorHint="#B0B0B0"
+                    android:textColor="#FFFFFF"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="kg"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    <!-- Guideline untuk membatasi tinggi RecyclerView sebelum TextView di bawahnya -->
+    <TextView
+        android:id="@+id/tv_footer_note"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Hitung IMT orang dewasa berusia 18 tahun ke atas"
+        android:textColor="#b0b0b0"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <LinearLayout
+        android:id="@+id/layoutHasil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_card_satuan"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_footer_note"
+        android:visibility="visible"
+        android:layout_marginTop="16dp">
+
+        <!-- Baris 1: Ikon, Label IMT, Nilai -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_timbangan" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="IMT"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:layout_marginStart="8dp" />
+
+            <TextView
+                android:id="@+id/textNilaiIMT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textColor="#BEE1F5"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Bar warna -->
+        <LinearLayout
+            android:id="@+id/imtbars"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <View android:id="@+id/bar_underweight" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:background="#556B2F"/>
+            <View android:id="@+id/bar_normal" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:background="#32CD32"/>
+            <View android:id="@+id/bar_overweight" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:background="#B8860B"/>
+            <View android:id="@+id/bar_obese" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:background="#8B0000"/>
+        </LinearLayout>
+
+        <!-- Status teks -->
+        <TextView
+            android:id="@+id/textStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/textRange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14sp"
+            android:textColor="#AAAAAA"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+
+    <!-- button clear -->
+    <FrameLayout
+        android:id="@+id/clear_button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp">
+
+        <ImageButton
+            android:id="@+id/clear_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:src="@drawable/clear_icon"
+            android:contentDescription="Clear All"
+
+            />
+    </FrameLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

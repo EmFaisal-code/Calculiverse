@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         keuanganData.add(new Kategori("Keuangan", "Harga satuan"));
 
         ArrayList<Kategori> kesehatanData = new ArrayList<>();
-        kesehatanData.add(new Kategori("Kesehatan", "BMI"));
+        kesehatanData.add(new Kategori("Kesehatan", "Indeks Massa Tubuh"));
         kesehatanData.add(new Kategori("Kesehatan", "Kalori"));
 
         ArrayList<Kategori> waktuData = new ArrayList<>();
@@ -98,10 +98,13 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case "Harga satuan":
-                            intent = new Intent (MainActivity.this, HargaSatuanActivity.class);
-                            startActivity(intent);
+                        intent = new Intent (MainActivity.this, HargaSatuanActivity.class);
+                        startActivity(intent);
                         break;
-
+                    case "Indeks Massa Tubuh":
+                        intent = new Intent (MainActivity.this, IndeksMassaTubuhActivity.class);
+                        startActivity(intent);
+                        break;
                 }
             }
         });
