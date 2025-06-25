@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Kategori> kesehatanData = new ArrayList<>();
         kesehatanData.add(new Kategori("Kesehatan", "Indeks Massa Tubuh"));
-        kesehatanData.add(new Kategori("Kesehatan", "Kalori"));
+        kesehatanData.add(new Kategori("Kesehatan", "Lemak Tubuh"));
 
         ArrayList<Kategori> waktuData = new ArrayList<>();
-        waktuData.add(new Kategori("Waktu", "Konversi Waktu"));
-        waktuData.add(new Kategori("Waktu", "Hitung Mundur"));
+        waktuData.add(new Kategori("Waktu", "Interval Waktu"));
+        waktuData.add(new Kategori("Waktu", "Kalkulator Usia"));
 
         ArrayList<Kategori> pengonversiSatuanData = new ArrayList<>();
         pengonversiSatuanData.add(new Kategori("Pengonversi Satuan", "Panjang"));
@@ -103,6 +103,18 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case "Indeks Massa Tubuh":
                         intent = new Intent (MainActivity.this, IndeksMassaTubuhActivity.class);
+                        startActivity(intent);
+                        break;
+                    case "Lemak Tubuh":
+                        intent = new Intent (MainActivity.this, LemakTubuhActivity.class);
+                        startActivity(intent);
+                        break;
+                    case "Kalkulator Usia":
+                        intent = new Intent (MainActivity.this, KalkulatorUsiaActivity.class);
+                        startActivity(intent);
+                        break;
+                    case "Interval Waktu":
+                        intent = new Intent (MainActivity.this, IntervalWaktuActivity.class);
                         startActivity(intent);
                         break;
                 }

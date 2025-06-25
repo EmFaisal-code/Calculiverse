@@ -29,6 +29,9 @@
         <activity android:name=".BungaActivity" />
         <activity android:name=".HargaSatuanActivity" />
         <activity android:name=".IndeksMassaTubuhActivity" />
+        <activity android:name=".LemakTubuhActivity" />
+        <activity android:name=".KalkulatorUsiaActivity" />
+        <activity android:name=".IntervalWaktuActivity" />
     </application>
 
 </manifest>
