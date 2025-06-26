@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Kategori> pengonversiSatuanData = new ArrayList<>();
         pengonversiSatuanData.add(new Kategori("Pengonversi Satuan", "Panjang"));
-        pengonversiSatuanData.add(new Kategori("Pengonversi Satuan", "Berat"));
+        pengonversiSatuanData.add(new Kategori("Pengonversi Satuan", "Percepatan"));
         pengonversiSatuanData.add(new Kategori("Pengonversi Satuan", "Suhu"));
 
         KategoriAdapter kategoriAdapter = new KategoriAdapter(this);
@@ -115,6 +115,14 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case "Interval Waktu":
                         intent = new Intent (MainActivity.this, IntervalWaktuActivity.class);
+                        startActivity(intent);
+                        break;
+                    case "Suhu":
+                        intent = new Intent (MainActivity.this, SuhuActivity.class);
+                        startActivity(intent);
+                        break;
+                    case "Percepatan":
+                        intent = new Intent (MainActivity.this, PercepatanActivity.class);
                         startActivity(intent);
                         break;
                 }

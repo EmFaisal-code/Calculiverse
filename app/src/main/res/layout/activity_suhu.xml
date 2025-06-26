@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121413"
+    android:fitsSystemWindows="true"
+    tools:context=".SuhuActivity"
+    android:padding="16dp">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#232323"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Suhu"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Celcius"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                android:textSize="20sp"
+                android:layout_marginStart="24dp"/>
+            <TextView
+                android:id="@+id/tv_per_celcius"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1 °C"
+                android:textColor="#B0B0B0"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_rounded_corners"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_celcius"/>
+
+                <EditText
+                    android:id="@+id/et_output_celcius"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="end"
+                    android:hint="1"
+                    android:inputType="number"
+                    android:padding="0dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="°C"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fahrenheit"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                android:textSize="20sp"
+                android:layout_marginStart="24dp"/>
+            <TextView
+                android:id="@+id/tv_per_fahrenheit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-17.22 °F"
+                android:textColor="#B0B0B0"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_rounded_corners"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_fahrenheit"/>
+                <EditText
+                    android:id="@+id/et_output_fahrenheit"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="1"
+                    android:gravity="end"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:textSize="20sp"
+                    android:padding="0dp"
+                    android:layout_marginEnd="12dp"
+                    android:textColorHint="#FFFFFF"
+                    android:textColor="#FFFFFF"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="°F"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kelvin"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                android:textSize="20sp"
+                android:layout_marginStart="24dp"/>
+            <TextView
+                android:id="@+id/tv_per_kelvin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-272.15 °K"
+                android:textColor="#B0B0B0"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_rounded_corners"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_kelvin"/>
+                <EditText
+                    android:id="@+id/et_output_kelvin"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="1"
+                    android:gravity="end"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:textSize="20sp"
+                    android:padding="0dp"
+                    android:layout_marginEnd="12dp"
+                    android:textColorHint="#FFFFFF"
+                    android:textColor="#FFFFFF"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="°K"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    <!-- Guideline untuk membatasi tinggi RecyclerView sebelum TextView di bawahnya -->
+    <TextView
+        android:id="@+id/tv_footer_note"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Hitung suhu dengan Celcius, Fahrenheit, Kelvin"
+        android:textColor="#b0b0b0"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+
+
+    <!-- button clear -->
+    <FrameLayout
+        android:id="@+id/clear_button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp">
+
+        <ImageButton
+            android:id="@+id/clear_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:src="@drawable/clear_icon"
+            android:contentDescription="Clear All"
+
+            />
+    </FrameLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

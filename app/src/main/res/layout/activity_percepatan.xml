@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121413"
+    android:fitsSystemWindows="true"
+    tools:context=".SuhuActivity"
+    android:padding="16dp">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#232323"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Percepatan"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kilometer / Jam"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                android:textSize="20sp"
+                android:layout_marginStart="24dp"/>
+            <TextView
+                android:id="@+id/tv_per_kmh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1 km/h"
+                android:textColor="#B0B0B0"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_rounded_corners"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_car"/>
+
+                <EditText
+                    android:id="@+id/et_output_kmh"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="end"
+                    android:hint="1"
+                    android:inputType="number"
+                    android:padding="0dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="km/h"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mil / Jam"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                android:textSize="20sp"
+                android:layout_marginStart="24dp"/>
+            <TextView
+                android:id="@+id/tv_per_mih"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1.61 km/h"
+                android:textColor="#B0B0B0"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_rounded_corners"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_f1"/>
+                <EditText
+                    android:id="@+id/et_output_mih"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="0.61"
+                    android:gravity="end"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:textSize="20sp"
+                    android:padding="0dp"
+                    android:layout_marginEnd="12dp"
+                    android:textColorHint="#FFFFFF"
+                    android:textColor="#FFFFFF"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="mi/h"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mil / Detik"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                android:textSize="20sp"
+                android:layout_marginStart="24dp"/>
+            <TextView
+                android:id="@+id/tv_per_mis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5,793.64 km/h"
+                android:textColor="#B0B0B0"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_rounded_corners"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_rocket"/>
+                <EditText
+                    android:id="@+id/et_output_mis"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="0.00017"
+                    android:gravity="end"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:textSize="20sp"
+                    android:padding="0dp"
+                    android:layout_marginEnd="12dp"
+                    android:textColorHint="#FFFFFF"
+                    android:textColor="#FFFFFF"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="mi/s"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kecepatan Suara"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                android:textSize="20sp"
+                android:layout_marginStart="24dp"/>
+            <TextView
+                android:id="@+id/tv_suhu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1,234.8 km/h"
+                android:textColor="#B0B0B0"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_rounded_corners"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_fighter"/>
+
+                <EditText
+                    android:id="@+id/et_output_mach"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="end"
+                    android:hint="0.00081"
+                    android:inputType="number"
+                    android:padding="0dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="mach"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kecepatan Cahaya"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="12dp"
+                android:textSize="20sp"
+                android:layout_marginStart="24dp"/>
+            <TextView
+                android:id="@+id/tv_per_c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1,079,252,848.8 km/h"
+                android:textColor="#B0B0B0"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_rounded_corners"
+                android:padding="12dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_celcius"/>
+
+                <EditText
+                    android:id="@+id/et_output_celcius"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="end"
+                    android:hint="9.27e-10"
+                    android:inputType="number"
+                    android:padding="0dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:text="c"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    <!-- Guideline untuk membatasi tinggi RecyclerView sebelum TextView di bawahnya -->
+    <TextView
+        android:id="@+id/tv_footer_note"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Hitung seberapa cepat"
+        android:textColor="#b0b0b0"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+
+
+    <!-- button clear -->
+    <FrameLayout
+        android:id="@+id/clear_button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp">
+
+        <ImageButton
+            android:id="@+id/clear_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:src="@drawable/clear_icon"
+            android:contentDescription="Clear All"
+
+            />
+    </FrameLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

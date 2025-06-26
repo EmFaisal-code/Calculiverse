@@ -32,6 +32,8 @@
         <activity android:name=".LemakTubuhActivity" />
         <activity android:name=".KalkulatorUsiaActivity" />
         <activity android:name=".IntervalWaktuActivity" />
+        <activity android:name=".SuhuActivity" />
+        <activity android:name=".PercepatanActivity" />
     </application>
 
 </manifest>
