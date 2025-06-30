@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Calculiverse"
         tools:targetApi="31">
         <activity
+            android:name=".PrismaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SegitigaActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -34,6 +40,9 @@
         <activity android:name=".IntervalWaktuActivity" />
         <activity android:name=".SuhuActivity" />
         <activity android:name=".PercepatanActivity" />
+        <activity android:name=".PanjangActivity" />
+        <activity android:name=".DatarActivity" />
+        <activity android:name=".RuangActivity" />
     </application>
 
 </manifest>

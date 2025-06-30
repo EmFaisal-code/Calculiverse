@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         aljabarData.add(new Kategori("Aljabar", "Rasio"));
 
         ArrayList<Kategori> geometriData = new ArrayList<>();
-        geometriData.add(new Kategori("Geometri", "Bentuk"));
-        geometriData.add(new Kategori("Geometri", "Volume"));
+        geometriData.add(new Kategori("Geometri", "Datar"));
+        geometriData.add(new Kategori("Geometri", "Ruang"));
 
         ArrayList<Kategori> keuanganData = new ArrayList<>();
         keuanganData.add(new Kategori("Keuangan", "Bunga"));
@@ -123,6 +123,18 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case "Percepatan":
                         intent = new Intent (MainActivity.this, PercepatanActivity.class);
+                        startActivity(intent);
+                        break;
+                    case "Panjang":
+                        intent = new Intent (MainActivity.this, PanjangActivity.class);
+                        startActivity(intent);
+                        break;
+                    case "Datar":
+                        intent = new Intent (MainActivity.this, DatarActivity.class);
+                        startActivity(intent);
+                        break;
+                    case "Ruang":
+                        intent = new Intent (MainActivity.this, RuangActivity.class);
                         startActivity(intent);
                         break;
                 }

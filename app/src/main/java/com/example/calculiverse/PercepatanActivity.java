@@ -34,11 +34,11 @@ public class PercepatanActivity extends AppCompatActivity {
         etMih = findViewById(R.id.et_output_mih);
         etMis = findViewById(R.id.et_output_mis);
         etMach = findViewById(R.id.et_output_mach);
-        etC = findViewById(R.id.et_output_celcius);
+        etC = findViewById(R.id.et_output_c);
         tvPerKmh = findViewById(R.id.tv_per_kmh);
         tvPerMih = findViewById(R.id.tv_per_mih);
         tvPerMis = findViewById(R.id.tv_per_mis);
-        tvPerMach = findViewById(R.id.tv_suhu);
+        tvPerMach = findViewById(R.id.tv_per_mach);
         tvPerC = findViewById(R.id.tv_per_c);
         ImageButton clearButton = findViewById(R.id.clear_button);
 

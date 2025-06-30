@@ -106,19 +106,21 @@
                     android:textSize="20sp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginStart="24dp"/>
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_gender"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
+                    android:backgroundTint="#232323"
                     android:text="Pria"
+                    android:textColor="@android:color/white"
                     app:icon="@drawable/ic_gender"
+                    app:iconSize="16dp"
                     app:iconGravity="start"
                     app:iconPadding="8dp"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:backgroundTint="#232323"
-                    app:iconTint="@null"
-                    android:textColor="@android:color/white"/>
+                    app:iconTint="@null" />
 
             </LinearLayout>
 
