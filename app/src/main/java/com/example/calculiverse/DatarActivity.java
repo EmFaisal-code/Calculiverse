@@ -31,29 +31,29 @@ public class DatarActivity extends AppCompatActivity {
                 startActivity(new Intent(DatarActivity.this, SegitigaActivity.class));
             }
         });
-//        cardSegitigaSiku2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(DatarActivity.this, SegitigaSikActivity.class));
-//            }
-//        });
-//        cardBujursangkar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(DatarActivity.this, BujursangkarActivity.class));
-//            }
-//        });
-//        cardSegiempat.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(DatarActivity.this, SegiempatActivity.class));
-//            }
-//        });
-//        cardLingkaran.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(DatarActivity.this, LingkaranActivity.class));
-//            }
-//        });
+        cardSegitigaSiku2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DatarActivity.this, SegitigaSiku2Activity.class));
+            }
+        });
+        cardBujursangkar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DatarActivity.this, BujurSangkarActivity.class));
+            }
+        });
+        cardSegiempat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DatarActivity.this, SegiEmpatActivity.class));
+            }
+        });
+        cardLingkaran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DatarActivity.this, LingkaranActivity.class));
+            }
+        });
     }
 }

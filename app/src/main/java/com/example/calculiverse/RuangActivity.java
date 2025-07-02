@@ -24,29 +24,29 @@ public class RuangActivity extends AppCompatActivity {
         CardView cardTabung = findViewById(R.id.card_tabung);
         CardView cardBola = findViewById(R.id.card_bola);
 
-//        cardKubus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(RuangActivity.this, KubusActivity.class));
-//            }
-//        });
+        cardKubus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RuangActivity.this, KubusActivity.class));
+            }
+        });
         cardPrisma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(RuangActivity.this, PrismaActivity.class));
             }
+        });cardTabung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RuangActivity.this, TabungActivity.class));
+            }
         });
-//        cardTabung.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(RuangActivity.this, TabungActivity.class));
-//            }
-//        });
-//        cardBola.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(RuangActivity.this, BolaActivity.class));
-//            }
-//        });
+        cardBola.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RuangActivity.this, BolaActivity.class));
+            }
+        });
+
     }
 }

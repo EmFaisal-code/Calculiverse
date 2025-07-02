@@ -6,12 +6,14 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.Room;
 
 public class PanjangActivity extends AppCompatActivity {
     private EditText etNm, etMm, etCm, etM, etKm, etLy, etAu, etPc, etFt, etIn, etMi, etYd;
@@ -131,6 +133,23 @@ public class PanjangActivity extends AppCompatActivity {
         clearButton.setOnClickListener(v -> {
             for (EditText et : etArr) et.setText("");
             for (int i = 0; i < tvArr.length; i++) tvArr[i].setText("1 " + satuan[i]);
+        });
+        ImageButton btnAddFavorite = findViewById(R.id.btn_add_favorite);
+        AppDatabase db = Room.databaseBuilder(
+                getApplicationContext(),
+                AppDatabase.class, "favorit-db"
+        ).allowMainThreadQueries().build();
+
+        btnAddFavorite.setOnClickListener(v -> {
+            boolean isFavorit = db.favoritDao().isFavorit("Panjang");
+            if (isFavorit) {
+                db.favoritDao().deleteByKategoriAndSubkategori("Pengonversi satuan", "Panjang");
+                Toast.makeText(this, "Dihapus dari Favorit", Toast.LENGTH_SHORT).show();
+            } else {
+                Favorit favorit = new Favorit("Pengonversi satuan", "Panjang");
+                db.favoritDao().insert(favorit);
+                Toast.makeText(this, "Ditambahkan ke Favorit", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

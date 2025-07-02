@@ -8,12 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.Room;
 
 public class RasioActivity extends AppCompatActivity {
     private EditText etInputA, etInputB, etOutputX, etOutputY;
@@ -90,6 +92,24 @@ public class RasioActivity extends AppCompatActivity {
         etInputC.addTextChangedListener(deduksiWatcher);
         etInputD.addTextChangedListener(deduksiWatcher);
         etOutputE.addTextChangedListener(deduksiWatcher);
+
+        ImageButton btnAddFavorite = findViewById(R.id.btn_add_favorite);
+        AppDatabase db = Room.databaseBuilder(
+                getApplicationContext(),
+                AppDatabase.class, "favorit-db"
+        ).allowMainThreadQueries().build();
+
+        btnAddFavorite.setOnClickListener(v -> {
+            boolean isFavorit = db.favoritDao().isFavorit("Rasio");
+            if (isFavorit) {
+                db.favoritDao().deleteByKategoriAndSubkategori("Aljabar", "Rasio");
+                Toast.makeText(this, "Dihapus dari Favorit", Toast.LENGTH_SHORT).show();
+            } else {
+                Favorit favorit = new Favorit("Aljabar", "Rasio");
+                db.favoritDao().insert(favorit);
+                Toast.makeText(this, "Ditambahkan ke Favorit", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void calculateReduksi() {

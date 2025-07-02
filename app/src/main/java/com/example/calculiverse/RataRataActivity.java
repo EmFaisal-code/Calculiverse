@@ -3,9 +3,12 @@ package com.example.calculiverse;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 public class RataRataActivity extends AppCompatActivity {
     private EditText etInputA, etInputB;
@@ -40,6 +43,23 @@ public class RataRataActivity extends AppCompatActivity {
             }
             @Override
             public void afterTextChanged(android.text.Editable s) {}
+        });
+        ImageButton btnAddFavorite = findViewById(R.id.btn_add_favorite);
+        AppDatabase db = Room.databaseBuilder(
+                getApplicationContext(),
+                AppDatabase.class, "favorit-db"
+        ).allowMainThreadQueries().build();
+
+        btnAddFavorite.setOnClickListener(v -> {
+            boolean isFavorit = db.favoritDao().isFavorit("Rasio");
+            if (isFavorit) {
+                db.favoritDao().deleteByKategoriAndSubkategori("Aljabar", "Rasio");
+                Toast.makeText(this, "Dihapus dari Favorit", Toast.LENGTH_SHORT).show();
+            } else {
+                Favorit favorit = new Favorit("Aljabar", "Rasio");
+                db.favoritDao().insert(favorit);
+                Toast.makeText(this, "Ditambahkan ke Favorit", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

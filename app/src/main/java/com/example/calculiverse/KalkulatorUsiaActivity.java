@@ -1,6 +1,7 @@
 package com.example.calculiverse;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -16,10 +17,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.Room;
+
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.graphics.Color;
+import android.widget.Toast;
 
 public class KalkulatorUsiaActivity extends AppCompatActivity {
 
@@ -123,6 +127,23 @@ public class KalkulatorUsiaActivity extends AppCompatActivity {
             // Kosongkan hasil usia dan ulang tahun berikutnya
             tvUsia.setText("- -");
             tvNextBirthday.setText("- -");
+        });
+        ImageButton btnAddFavorite = findViewById(R.id.btn_add_favorite);
+        AppDatabase db = Room.databaseBuilder(
+                getApplicationContext(),
+                AppDatabase.class, "favorit-db"
+        ).allowMainThreadQueries().build();
+
+        btnAddFavorite.setOnClickListener(v -> {
+            boolean isFavorit = db.favoritDao().isFavorit("Kalkulator usia");
+            if (isFavorit) {
+                db.favoritDao().deleteByKategoriAndSubkategori("Waktu", "Kalkulator usia");
+                Toast.makeText(this, "Dihapus dari Favorit", Toast.LENGTH_SHORT).show();
+            } else {
+                Favorit favorit = new Favorit("Waktu", "Kalkulator usia");
+                db.favoritDao().insert(favorit);
+                Toast.makeText(this, "Ditambahkan ke Favorit", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

@@ -27,6 +27,41 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <ImageButton
+        android:id="@+id/btn_add_favorite"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:scaleType="fitXY"
+        android:background="#131214"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_add_favorite"
+        android:contentDescription="Tambah Favorit"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+
+        />
+
+    <FrameLayout
+        android:id="@+id/clear_button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp">
+
+        <ImageButton
+            android:id="@+id/clear_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_button"
+            android:src="@drawable/clear_icon"
+            android:contentDescription="Clear All"
+
+            />
+    </FrameLayout>
+
 
 
     <!-- Input Section -->
@@ -35,11 +70,11 @@
         android:id="@+id/tv_daftar_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:text="Berbanding Terbalik"
         android:textColor="#b0b0b0"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+        app:layout_constraintTop_toBottomOf="@id/btn_add_favorite"/>
     <TextView
         android:id="@+id/tv_daftar_label1"
         android:layout_width="200dp"
@@ -348,24 +383,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
 
-    <Button
-        android:id="@+id/clear_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
-        android:layout_marginTop="12dp"
-        android:text="Clear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="#444444"
-        android:textColor="#121413"
-        android:gravity="center"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:layout_marginBottom="12dp"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

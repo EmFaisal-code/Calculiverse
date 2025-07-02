@@ -18,6 +18,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.room.Room;
+
 public class MainActivity extends AppCompatActivity {
 
     private final String[] aljabarList = {"Persentase", "Rata-rata", "Perbandingan", "Rasio"};
@@ -184,6 +187,28 @@ public class MainActivity extends AppCompatActivity {
         tvLabelKategori.setText("Aljabar");
         kategoriAdapter.setKategoris(aljabarData);
         kategoriAdapter.notifyDataSetChanged();
+
+        BottomNavigationView bottomNav = findViewById(R.id.bot_nav);
+        bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.navigation_home) {
+                // Sudah di MainActivity, tidak perlu apa-apa
+                return true;
+            } else if (id == R.id.navigation_calculator) {
+                startActivity(new Intent(this, KalkulatorActivity.class));
+                return true;
+            } else if (id == R.id.navigation_favorite) {
+                startActivity(new Intent(this, FavoriteActivity.class));
+                return true;
+            }
+            return false;
+        });
+        AppDatabase db = Room.databaseBuilder(
+                getApplicationContext(),
+                AppDatabase.class, "favorit-db"
+        ).allowMainThreadQueries().build(); // untuk testing, nanti ganti pakai background thread
+
+        FavoritDao favoritDao = db.favoritDao();
     }
 }
 

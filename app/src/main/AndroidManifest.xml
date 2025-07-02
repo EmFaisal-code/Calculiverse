@@ -13,6 +13,31 @@
         android:theme="@style/Theme.Calculiverse"
         tools:targetApi="31">
         <activity
+            android:name=".TabungActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BolaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".KubusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SegiEmpatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LingkaranActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SegitigaSiku2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".BujurSangkarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FavoriteActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".PrismaActivity"
             android:exported="false" />
         <activity
@@ -43,6 +68,7 @@
         <activity android:name=".PanjangActivity" />
         <activity android:name=".DatarActivity" />
         <activity android:name=".RuangActivity" />
+        <activity android:name=".KalkulatorActivity" />
     </application>
 
 </manifest>

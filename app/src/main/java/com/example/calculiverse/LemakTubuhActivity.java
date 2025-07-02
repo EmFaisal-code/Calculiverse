@@ -11,11 +11,14 @@ import android.widget.Button;
 import com.google.android.material.button.MaterialButton;
 import android.graphics.drawable.Drawable;
 import androidx.core.content.ContextCompat;
+import androidx.room.Room;
+
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ImageButton;
 import android.text.TextWatcher;
 import android.text.Editable;
+import android.widget.Toast;
 
 public class LemakTubuhActivity extends AppCompatActivity {
 
@@ -84,6 +87,24 @@ public class LemakTubuhActivity extends AppCompatActivity {
         etTinggi.addTextChangedListener(watcher);
         etBerat.addTextChangedListener(watcher);
         etUsia.addTextChangedListener(watcher);
+
+        ImageButton btnAddFavorite = findViewById(R.id.btn_add_favorite);
+        AppDatabase db = Room.databaseBuilder(
+                getApplicationContext(),
+                AppDatabase.class, "favorit-db"
+        ).allowMainThreadQueries().build();
+
+        btnAddFavorite.setOnClickListener(v -> {
+            boolean isFavorit = db.favoritDao().isFavorit("Lemak tubuh");
+            if (isFavorit) {
+                db.favoritDao().deleteByKategoriAndSubkategori("Kesehatan", "Lemak tubuh");
+                Toast.makeText(this, "Dihapus dari Favorit", Toast.LENGTH_SHORT).show();
+            } else {
+                Favorit favorit = new Favorit("Kesehatan", "Lemak tubuh");
+                db.favoritDao().insert(favorit);
+                Toast.makeText(this, "Ditambahkan ke Favorit", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void hitungLemakTubuh(EditText etTinggi, EditText etBerat, EditText etUsia, MaterialButton btnGender, TextView tvHasil) {

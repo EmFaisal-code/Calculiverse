@@ -26,16 +26,30 @@
             android:textSize="26sp"
             android:textStyle="bold" />
 
+
     </androidx.appcompat.widget.Toolbar>
+
+    <ImageButton
+        android:id="@+id/btn_add_favorite"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:scaleType="fitXY"
+        android:background="#131214"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_add_favorite"
+        android:contentDescription="Tambah Favorit"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+
+        />
 
 
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="12dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toBottomOf="@id/btn_add_favorite"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -210,6 +224,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
+            android:layout_marginTop="32dp"
             android:src="@drawable/clear_icon"
             android:contentDescription="Clear All"
 

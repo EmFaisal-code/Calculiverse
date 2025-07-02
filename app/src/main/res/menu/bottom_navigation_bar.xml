@@ -9,4 +9,8 @@
         android:id="@+id/navigation_calculator"
         android:icon="@drawable/ic_calculate"
         android:title="Calculator" />
+    <item
+        android:id="@+id/navigation_favorite"
+        android:icon="@drawable/ic_star"
+        android:title="Favorite" />
 </menu>

@@ -327,6 +327,8 @@
         android:layout_height="wrap_content"
         android:background="#232323"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:itemIconTint="@drawable/bottom_nav_selector"
+        app:itemTextColor="@drawable/bottom_nav_selector"
         app:menu="@menu/bottom_navigation_bar" />
 
     <androidx.constraintlayout.widget.Guideline

@@ -5,7 +5,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 public class PerbandinganActivity extends AppCompatActivity {
     private EditText etInputA, etInputX, etOutputB, etOutputY;
@@ -66,6 +70,23 @@ public class PerbandinganActivity extends AppCompatActivity {
         etInputE.addTextChangedListener(watcherDirect);
         etOutputD.addTextChangedListener(watcherDirect);
         etOutputF.addTextChangedListener(watcherDirect);
+        ImageButton btnAddFavorite = findViewById(R.id.btn_add_favorite);
+        AppDatabase db = Room.databaseBuilder(
+                getApplicationContext(),
+                AppDatabase.class, "favorit-db"
+        ).allowMainThreadQueries().build();
+
+        btnAddFavorite.setOnClickListener(v -> {
+            boolean isFavorit = db.favoritDao().isFavorit("Perbandingan");
+            if (isFavorit) {
+                db.favoritDao().deleteByKategoriAndSubkategori("Aljabar", "Perbandingan");
+                Toast.makeText(this, "Dihapus dari Favorit", Toast.LENGTH_SHORT).show();
+            } else {
+                Favorit favorit = new Favorit("Aljabar", "Perbandingan");
+                db.favoritDao().insert(favorit);
+                Toast.makeText(this, "Ditambahkan ke Favorit", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void clearAllFields() {
