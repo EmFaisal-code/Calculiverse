@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.TextView;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private final String[] waktuList = {"Konversi Waktu", "Hitung Mundur"};
     private final String[] pengonversiSatuanList = {"Panjang", "Berat", "Suhu"};
     private KategoriAdapter adapter;
+    // Tambahkan variabel untuk menyimpan data kategori aktif
+    private ArrayList<Kategori> currentKategoriData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tvLabelKategori = findViewById(R.id.tv_label_kategori);
         ListView listView = findViewById(R.id.lv_list_subkategori);
+        EditText etSearch = findViewById(R.id.et_search);
 
         // Data untuk setiap kategori
         ArrayList<Kategori> aljabarData = new ArrayList<>();
@@ -71,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         KategoriAdapter kategoriAdapter = new KategoriAdapter(this);
         kategoriAdapter.setKategoris(aljabarData);
         listView.setAdapter(kategoriAdapter);
+        // Set default currentKategoriData
+        currentKategoriData = aljabarData;
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -155,31 +161,37 @@ public class MainActivity extends AppCompatActivity {
         layoutAljabar.setOnClickListener(v -> {
             tvLabelKategori.setText("Aljabar");
             kategoriAdapter.setKategoris(aljabarData);
+            currentKategoriData = aljabarData;
             kategoriAdapter.notifyDataSetChanged();
         });
         layoutGeometri.setOnClickListener(v -> {
             tvLabelKategori.setText("Geometri");
             kategoriAdapter.setKategoris(geometriData);
+            currentKategoriData = geometriData;
             kategoriAdapter.notifyDataSetChanged();
         });
         layoutPengonversiSatuan.setOnClickListener(v -> {
             tvLabelKategori.setText("Pengonversi Satuan");
             kategoriAdapter.setKategoris(pengonversiSatuanData);
+            currentKategoriData = pengonversiSatuanData;
             kategoriAdapter.notifyDataSetChanged();
         });
         layoutKeuangan.setOnClickListener(v -> {
             tvLabelKategori.setText("Keuangan");
             kategoriAdapter.setKategoris(keuanganData);
+            currentKategoriData = keuanganData;
             kategoriAdapter.notifyDataSetChanged();
         });
         layoutKesehatan.setOnClickListener(v -> {
             tvLabelKategori.setText("Kesehatan");
             kategoriAdapter.setKategoris(kesehatanData);
+            currentKategoriData = kesehatanData;
             kategoriAdapter.notifyDataSetChanged();
         });
         layoutWaktu.setOnClickListener(v -> {
             tvLabelKategori.setText("Waktu");
             kategoriAdapter.setKategoris(waktuData);
+            currentKategoriData = waktuData;
             kategoriAdapter.notifyDataSetChanged();
         });
 
@@ -209,6 +221,32 @@ public class MainActivity extends AppCompatActivity {
         ).allowMainThreadQueries().build(); // untuk testing, nanti ganti pakai background thread
 
         FavoritDao favoritDao = db.favoritDao();
+
+        // Tambahkan TextWatcher untuk search
+        etSearch.addTextChangedListener(new android.text.TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filterKategori(s.toString(), kategoriAdapter);
+            }
+
+            @Override
+            public void afterTextChanged(android.text.Editable s) {}
+        });
+    }
+
+    // Tambahkan method filterKategori
+    private void filterKategori(String query, KategoriAdapter kategoriAdapter) {
+        ArrayList<Kategori> filteredList = new ArrayList<>();
+        for (Kategori kategori : currentKategoriData) {
+            if (kategori.getSubkategori().toLowerCase().contains(query.toLowerCase())) {
+                filteredList.add(kategori);
+            }
+        }
+        kategoriAdapter.setKategoris(filteredList);
+        kategoriAdapter.notifyDataSetChanged();
     }
 }
 
